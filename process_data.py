@@ -8,12 +8,12 @@ df = pd.concat([df1, df2, df3])
 
 df = df[df["product"] == "pink morsel"]
 
-df["Sales"] = df["quantity"] * df["price"]
+df["sales"] = df["quantity"] * df["price"]
 
-df = df[["Sales", "date", "region"]]    
+df = df[["sales", "date", "region"]]    
 
-df.columns = ["Sales", "Date", "Region"]   # ✅ FIXED
+df.columns = ["sales", "date", "region"]
 
-df.to_csv("output.csv", index=False)
+df.to_csv("output.csv", index=False, sep="\t")
 
 print("Processing complete")
