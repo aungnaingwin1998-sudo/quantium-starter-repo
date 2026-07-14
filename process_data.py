@@ -8,12 +8,13 @@ df = pd.concat([df1, df2, df3])
 
 df = df[df["product"] == "pink morsel"]
 
+df["price"] = df["price"].str.replace("$", "", regex=False).astype(float)
 df["sales"] = df["quantity"] * df["price"]
 
 df = df[["sales", "date", "region"]]    
 
 df.columns = ["sales", "date", "region"]
 
-df.to_csv("output.csv", index=False, sep="\t")
+df.to_csv("output.csv", index=False)
 
 print("Processing complete")
